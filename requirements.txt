@@ -1,0 +1,6 @@
+jupyterlab
+notebook
+numpy
+pandas==0.22
+zipline
+matplotlib
