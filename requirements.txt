@@ -5,4 +5,4 @@ pandas==0.22
 zipline
 matplotlib
 ipywidgets
-seaborn
+seaborn==0.10.1
