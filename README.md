@@ -1,10 +1,18 @@
 # Zipline Environment
 
-[Jupyter Notebook](https://jupyter.org/) environment with pre-installed [zipline](https://www.zipline.io).
+[JupyterLab](https://jupyter.org/) environment with pre-installed [zipline](https://www.zipline.io).
 
-## Usage
+## Setup
 
-Ensure Python 3.6 and `tox` are available.
-Spin it up using `tox -epy36-jupyterlab`.
+Ensure [nix](https://nixos.org/guides/install-nix.html) is available.
+Enable the environment by typing:
 
-The notebook path is set to `./notebooks`.
+```
+nix-shell
+```
+
+Alternatively use [direnv](https://direnv.net/) and enable it using:
+
+```
+direnv enable .
+```

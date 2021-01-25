@@ -1,8 +1,0 @@
-jupyterlab
-notebook
-numpy
-pandas==0.22
-zipline
-matplotlib
-ipywidgets
-seaborn==0.10.1
