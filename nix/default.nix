@@ -4,6 +4,8 @@ let
   # default nixpkgs
   pkgs = import sources.nixpkgs { };
 
+  niv = import sources.niv { };
+
   # gitignore.nix
   gitignoreSource = (import sources."gitignore.nix" { inherit (pkgs) lib; }).gitignoreSource;
 
@@ -51,7 +53,7 @@ in
 
   # provided by shell.nix
   devTools = {
-    inherit (pkgs) niv;
+    inherit (niv) niv;
     inherit (pkgs) glibcLocales;
     inherit (pre-commit-hooks) pre-commit;
     inherit machNix;
