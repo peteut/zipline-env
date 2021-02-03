@@ -52,6 +52,7 @@ in
   # provided by shell.nix
   devTools = {
     inherit (pkgs) niv;
+    inherit (pkgs) glibcLocales;
     inherit (pre-commit-hooks) pre-commit;
     inherit machNix;
     # required for jupyter extensions
