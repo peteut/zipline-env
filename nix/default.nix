@@ -19,15 +19,13 @@ let
     requirements = ''
       jupyterlab
       zipline
-      matplotlib
-      seaborn == 0.10.1
-      ipywidgets
       ipyvuetify
       altair
       jupytext
       attrs
     '';
     providers.jupyterlab = "nixpkgs";
+
     packagesExtra = [
       (mach-nix.buildPythonPackage {
         src = sources."bcolz"."url";
@@ -63,15 +61,20 @@ in
 
   jupyter = {
     shellHook = ''
-        APPDIR=./app
+      APPDIR=./app
+      if [ -d "$APPDIR" ]
+      then
+        echo "labextension already installed, delete $APPDIR to regenerate."
+      else
+        echo "install labextension as $APPDIR does not exist."
         mkdir -p $APPDIR
-
         ${pkgs.stdenv.lib.concatMapStrings
-          (s: "jupyter labextension install --no-build --app-dir=$APPDIR ${s}; ")
-          jupyterlabExtensions}
-      jupyter lab build --app-dir=$APPDIR
-      chmod -R +w $APPDIR/staging/
-      jupyter lab build --app-dir=$APPDIR
+        (s: "jupyter labextension install --no-build --app-dir=$APPDIR ${s}; ")
+        jupyterlabExtensions}
+        jupyter lab build --app-dir=$APPDIR
+        chmod -R +w $APPDIR/staging/
+        jupyter lab build --app-dir=$APPDIR
+      fi
       # start jupyterlab
       jupyter lab --app-dir=$APPDIR --notebook-dir=./notebooks
     '';
