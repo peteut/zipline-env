@@ -12,37 +12,34 @@ let
   pre-commit-hooks = (import sources."pre-commit-hooks.nix");
 
   mach-nix = (import sources."mach-nix") {
-    python = "python36";
+    python = "python38";
   };
 
   machNix = mach-nix.mkPython {
     requirements = ''
       jupyterlab
-      zipline
+      zipline-reloaded
       ipyvuetify
       altair
       jupytext
       attrs
     '';
-    providers.jupyterlab = "nixpkgs";
-
-    packagesExtra = [
-      (mach-nix.buildPythonPackage {
-        src = sources."bcolz"."url";
-        version = sources."bcolz"."rev";
-        preBuild = ''
-          # refer to https://github.com/Blosc/bcolz/issues/398
-          export DISABLE_BCOLZ_AVX2=true
-        '';
+    providers.jupyterlab = "wheel";
+    providers.zipline-reloaded = "wheel";
+    _.ta-lib.buildInputs.add = [
+      (pkgs.stdenv.mkDerivation {
+        pname = sources.ta-lib.repo;
+        version = sources.ta-lib.rev;
+        src = sources.ta-lib;
+        nativeBuildInputs = with pkgs; [
+          autoreconfHook
+        ];
+        patches = [
+          ./../ta-lib.patch
+        ];
       })
     ];
   };
-
-  jupyterlabExtensions = [
-    "@jupyter-widgets/jupyterlab-manager@2"
-    "jupyterlab-jupytext@1.2.2"
-    "jupyter-vuetify"
-  ];
 
   src = gitignoreSource ./..;
 in
@@ -61,22 +58,8 @@ in
 
   jupyter = {
     shellHook = ''
-      APPDIR=./app
-      if [ -d "$APPDIR" ]
-      then
-        echo "labextension already installed, delete $APPDIR to regenerate."
-      else
-        echo "install labextension as $APPDIR does not exist."
-        mkdir -p $APPDIR
-        ${pkgs.stdenv.lib.concatMapStrings
-        (s: "jupyter labextension install --no-build --app-dir=$APPDIR ${s}; ")
-        jupyterlabExtensions}
-        jupyter lab build --app-dir=$APPDIR
-        chmod -R +w $APPDIR/staging/
-        jupyter lab build --app-dir=$APPDIR
-      fi
       # start jupyterlab
-      jupyter lab --app-dir=$APPDIR --notebook-dir=./notebooks
+      jupyter lab --notebook-dir=./notebooks
     '';
   };
 

@@ -1,6 +1,6 @@
 # Zipline Environment
 
-[JupyterLab](https://jupyter.org/) environment with pre-installed [zipline](https://www.zipline.io).
+[JupyterLab](https://jupyter.org/) environment with pre-installed [zipline-reloaded](https://zipline.ml4trading.io/).
 
 ## Setup
 

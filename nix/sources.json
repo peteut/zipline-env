@@ -12,15 +12,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mach-nix": {
-        "branch": "refs/tags/3.1.1",
+        "branch": "refs/tags/3.3.0",
         "description": "Create highly reproducible python environments",
         "homepage": "",
         "owner": "DavHau",
         "repo": "mach-nix",
-        "rev": "1ec92303acd142aa1a3b60bb97745544cf049312",
-        "sha256": "06bxmz7x1fnjx2d0gb63fdm0jci2mcdnpa3isbhjr92z1l2a7hl1",
+        "rev": "773580c35bcdb8cbd0820018d304686282f88d16",
+        "sha256": "105d6b6kgvn8kll639vx5adh5hp4gjcl4bs9rjzzyqz7367wbxj6",
         "type": "tarball",
-        "url": "https://github.com/DavHau/mach-nix/archive/1ec92303acd142aa1a3b60bb97745544cf049312.tar.gz",
+        "url": "https://github.com/DavHau/mach-nix/archive/773580c35bcdb8cbd0820018d304686282f88d16.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -36,15 +36,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "release-20.03",
+        "branch": "release-21.05",
         "description": "Nix Packages collection",
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "929768261a3ede470eafb58d5b819e1a848aa8bf",
-        "sha256": "0zi54vbfi6i6i5hdd4v0l144y1c8rg6hq6818jjbbcnm182ygyfa",
+        "rev": "9f371831e260c28324f268b7e55938b5d19da901",
+        "sha256": "1hc9x26m17dfwj87x2gbb681v65kih4877968bgf2147i6p9f2s1",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/929768261a3ede470eafb58d5b819e1a848aa8bf.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/9f371831e260c28324f268b7e55938b5d19da901.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks.nix": {
@@ -58,5 +58,18 @@
         "type": "tarball",
         "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/c7e3896e35ceea480a7484ec1709be7bdda8849d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "ta-lib": {
+        "branch": "master",
+        "description": "An unofficial mirror to the old SF repo",
+        "homepage": "http://svn.code.sf.net/p/ta-lib/code/trunk/ta-lib/c/",
+        "owner": "TA-Lib",
+        "repo": "ta-lib",
+        "rev": "f74f8d76d4935fa35ab10d62ff92eb82ad1ca29a",
+        "sha256": "0x1pdg4n2z7fm8dq3bw9b5klzw606l1qccysr679gkl4z8pz475s",
+        "type": "tarball",
+        "url": "https://github.com/TA-Lib/ta-lib/archive/f74f8d76d4935fa35ab10d62ff92eb82ad1ca29a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "v0.5.0"
     }
 }
