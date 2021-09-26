@@ -11,8 +11,9 @@ let
 
   pre-commit-hooks = (import sources."pre-commit-hooks.nix");
 
+  python-version = "python38";
   mach-nix = (import sources."mach-nix") {
-    python = "python38";
+    python = python-version;
   };
 
   machNix = mach-nix.mkPython {
@@ -23,6 +24,7 @@ let
       altair
       jupytext
       attrs
+      pip
     '';
     providers.jupyterlab = "wheel";
     providers.zipline-reloaded = "wheel";
@@ -58,6 +60,13 @@ in
 
   jupyter = {
     shellHook = ''
+      # Tells pip to put packages into $PIP_PREFIX instead of the usual locations.
+      # See https://pip.pypa.io/en/stable/user_guide/#environment-variables.
+      export PIP_PREFIX=$(pwd)/_build/pip_packages
+      export PYTHONPATH="$PIP_PREFIX/${pkgs.${python-version}.sitePackages}:$PYTHONPATH"
+      export PATH="$PIP_PREFIX/bin:$PATH"
+      unset SOURCE_DATE_EPOCH
+
       # start jupyterlab
       jupyter lab --notebook-dir=./notebooks
     '';
