@@ -11,7 +11,7 @@ let
 
   pre-commit-hooks = (import sources."pre-commit-hooks.nix");
 
-  python-version = "python38";
+  python-version = "python39";
   mach-nix = (import sources."mach-nix") {
     python = python-version;
   };
