@@ -2,7 +2,7 @@
 }:
 let
   # default nixpkgs
-  pkgs = import sources.nixpkgs { };
+  pkgs = import sources.nixpkgs { config.allowUnfree = true; };
 
   niv = import sources.niv { };
 
@@ -24,6 +24,8 @@ let
       altair
       jupytext
       attrs
+      selenium
+      TA-lib
       pip
     '';
     providers.jupyterlab = "wheel";
@@ -54,8 +56,7 @@ in
     inherit (pkgs) glibcLocales;
     inherit (pre-commit-hooks) pre-commit;
     inherit machNix;
-    # required for jupyter extensions
-    inherit (pkgs) nodejs;
+    inherit (pkgs) google-chrome chromedriver;
   };
 
   jupyter = {
