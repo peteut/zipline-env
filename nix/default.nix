@@ -20,12 +20,14 @@ let
     requirements = ''
       jupyterlab
       zipline-reloaded
+      tables
       ipyvuetify
       altair
       jupytext
       attrs
       selenium
       TA-lib
+      pandas-datareader
       pip
     '';
     providers.jupyterlab = "wheel";
