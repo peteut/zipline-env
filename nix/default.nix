@@ -28,6 +28,7 @@ let
       selenium
       TA-lib
       pandas-datareader
+      tda-api
       pip
     '';
     providers.jupyterlab = "wheel";
