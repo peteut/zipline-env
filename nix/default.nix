@@ -46,6 +46,10 @@ let
         ];
       })
     ];
+    providers.tda-api = "sdist";
+    _.tda-api.patches = [
+      ./../tda-generate-token-shun-selenium.patch
+    ];
   };
 
   src = gitignoreSource ./..;

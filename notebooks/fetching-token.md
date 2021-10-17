@@ -40,6 +40,9 @@ def chrome(browser_name: str ="google-chrome-stable") -> typing.ContextManager[w
 
 Refer to [tda-api/auth.html#fetching-a-token-and-creating-a-client](https://tda-api.readthedocs.io/en/latest/auth.html#fetching-a-token-and-creating-a-client) for details.
 
+If you cannot use a browser you may use the `tda-generate-token.py` from the
+console.
+
 ```python
 with chrome() as driver:
     tda.auth.client_from_login_flow(driver, api_key, redirect_uri, token_path, redirect_wait_time_seconds=0.1, max_waits=3000)
