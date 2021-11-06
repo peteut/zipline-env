@@ -47,6 +47,7 @@ let
       })
     ];
     providers.tda-api = "sdist";
+    _.tda-api.src = sources.tda-api;
     _.tda-api.patches = [
       ./../tda-generate-token-shun-selenium.patch
     ];

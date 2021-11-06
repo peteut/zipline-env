@@ -71,5 +71,18 @@
         "url": "https://github.com/TA-Lib/ta-lib/archive/f74f8d76d4935fa35ab10d62ff92eb82ad1ca29a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "version": "v0.5.0"
+    },
+    "tda-api": {
+        "branch": "master",
+        "description": "A TD Ameritrade API client for Python. Includes historical data for equities and ETFs, options chains, streaming order book data, complex order construction, and more. ",
+        "homepage": "https://tda-api.readthedocs.io",
+        "owner": "alexgolec",
+        "repo": "tda-api",
+        "rev": "90398b4a16bdf2b6b34f47e01c805f33f6472c28",
+        "sha256": "0rk6f1fzbg97sl0gx2y7yrwdr5xb8z6f5dis6x5p200jbz9r3lsi",
+        "type": "tarball",
+        "url": "https://github.com/alexgolec/tda-api/archive/90398b4a16bdf2b6b34f47e01c805f33f6472c28.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "v1.4.1"
     }
 }

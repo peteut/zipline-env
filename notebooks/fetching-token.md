@@ -31,7 +31,7 @@ token_path = pathlib.Path(os.curdir) / "token.json"
 
 ```python
 def chrome(browser_name: str ="google-chrome-stable") -> typing.ContextManager[webdriver.Chrome]:
-    opts = ChromeOptions()                            
+    opts = ChromeOptions()
     opts.binary_location = shutil.which(browser_name)
     return closing(webdriver.Chrome(options=opts))
 ```
@@ -59,5 +59,4 @@ with pexpect.spawn(" ".join([
     print(child.before.decode())
     child.sendline(input("Redirect URL>"))
     child.expect(pexpect.EOF)
-    
 ```

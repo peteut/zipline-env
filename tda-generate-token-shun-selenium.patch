@@ -1,8 +1,12 @@
 diff --git a/bin/tda-generate-token.py b/bin/tda-generate-token.py
-index c9b3505..5fe9eb2 100755
+index 9b4c3c0..b402d8a 100755
 --- a/bin/tda-generate-token.py
 +++ b/bin/tda-generate-token.py
-@@ -5,75 +5,8 @@ import sys
+@@ -2,70 +2,15 @@
+ import argparse
+ import atexit
+ import sys
++import os
  
  import tda
  
@@ -10,17 +14,6 @@ index c9b3505..5fe9eb2 100755
 -from selenium.common.exceptions import WebDriverException
  
  def main(api_key, redirect_uri, token_path):
--    '''
--    for driver in (
--            webdriver.Chrome,
--            webdriver.Firefox,
--            webdriver.Safari,
--            webdriver.Ie):
--        driver = driver()
--        client = tda.auth.client_from_login_flow(
--                driver, api_key, redirect_uri, token_path)
--    '''
--
 -    driver = None
 -
 -    # Chrome
@@ -70,11 +63,15 @@ index c9b3505..5fe9eb2 100755
 -        with driver:
 -            client = tda.auth.client_from_login_flow(
 -                    driver, api_key, redirect_uri, token_path)
--            return
+-            return 0
 -    except:
 -        print('Failed to fetch a token using a web browser, falling back to '
 -                'the manual flow')
 -
      tda.auth.client_from_manual_flow(api_key, redirect_uri, token_path)
  
+-    return 0
++    return os.EX_OK
  
+ 
+ if __name__ == '__main__':
