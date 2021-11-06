@@ -84,5 +84,17 @@
         "url": "https://github.com/alexgolec/tda-api/archive/90398b4a16bdf2b6b34f47e01c805f33f6472c28.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
         "version": "v1.4.1"
+    },
+    "yfinance": {
+        "branch": "main",
+        "description": "Yahoo! Finance market data downloader (+faster Pandas Datareader)",
+        "homepage": "https://aroussi.com/post/python-yahoo-finance",
+        "owner": "ranaroussi",
+        "repo": "yfinance",
+        "rev": "6654a41a8d5c0c9e869a9b9acb3e143786c765c7",
+        "sha256": "03p43bg5zfih7513f9mnlq5hhsqwl53la0qajq51ax507vh2cvdf",
+        "type": "tarball",
+        "url": "https://github.com/ranaroussi/yfinance/archive/6654a41a8d5c0c9e869a9b9acb3e143786c765c7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

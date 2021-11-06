@@ -28,6 +28,7 @@ let
       selenium
       TA-lib
       pandas-datareader
+      yfinance
       tda-api
       pip
     '';
@@ -51,6 +52,7 @@ let
     _.tda-api.patches = [
       ./../tda-generate-token-shun-selenium.patch
     ];
+    _.yfinance.src = sources.yfinance;
   };
 
   src = gitignoreSource ./..;
