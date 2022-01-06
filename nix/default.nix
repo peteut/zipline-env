@@ -11,10 +11,7 @@ let
 
   pre-commit-hooks = (import sources."pre-commit-hooks.nix");
 
-  python-version = "python39";
-  mach-nix = (import sources."mach-nix") {
-    python = python-version;
-  };
+  mach-nix = (import sources."mach-nix") { };
 
   machNix = mach-nix.mkPython {
     requirements = ''
@@ -32,7 +29,6 @@ let
       tda-api
       pip
     '';
-    providers.jupyterlab = "wheel";
     providers.zipline-reloaded = "wheel";
     _.ta-lib.buildInputs.add = [
       (pkgs.stdenv.mkDerivation {
@@ -74,7 +70,7 @@ in
       # Tells pip to put packages into $PIP_PREFIX instead of the usual locations.
       # See https://pip.pypa.io/en/stable/user_guide/#environment-variables.
       export PIP_PREFIX=$(pwd)/_build/pip_packages
-      export PYTHONPATH="$PIP_PREFIX/${pkgs.${python-version}.sitePackages}:$PYTHONPATH"
+      export PYTHONPATH="$PIP_PREFIX/${pkgs.python3.sitePackages}:$PYTHONPATH"
       export PATH="$PIP_PREFIX/bin:$PATH"
       unset SOURCE_DATE_EPOCH
 
