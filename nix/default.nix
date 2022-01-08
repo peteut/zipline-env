@@ -11,7 +11,9 @@ let
 
   pre-commit-hooks = (import sources."pre-commit-hooks.nix");
 
-  mach-nix = (import sources."mach-nix") { };
+  mach-nix = (import sources."mach-nix") {
+    python = "python39";
+  };
 
   machNix = mach-nix.mkPython {
     requirements = ''
