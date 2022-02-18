@@ -4,8 +4,6 @@ let
   # default nixpkgs
   pkgs = import sources.nixpkgs { config.allowUnfree = true; };
 
-  niv = import sources.niv { };
-
   # gitignore.nix
   gitignoreSource = (import sources."gitignore.nix" { inherit (pkgs) lib; }).gitignoreSource;
 
@@ -13,6 +11,7 @@ let
 
   mach-nix = (import sources."mach-nix") {
     python = "python39";
+    inherit pkgs;
   };
 
   machNix = mach-nix.mkPython {
@@ -37,9 +36,9 @@ let
         pname = sources.ta-lib.repo;
         version = sources.ta-lib.rev;
         src = sources.ta-lib;
-        nativeBuildInputs = with pkgs; [
-          autoreconfHook
-        ];
+        nativeBuildInputs = builtins.attrValues {
+          inherit (pkgs) autoreconfHook;
+        };
         patches = [
           ./../ta-lib.patch
         ];
@@ -60,10 +59,10 @@ in
 
   # provided by shell.nix
   devTools = {
-    inherit (niv) niv;
-    inherit (pkgs) glibcLocales;
+    inherit (pkgs) niv glibcLocales;
     inherit (pre-commit-hooks) pre-commit;
     inherit machNix;
+    # needed to grab an API token
     inherit (pkgs) google-chrome chromedriver;
   };
 

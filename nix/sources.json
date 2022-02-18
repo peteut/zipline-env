@@ -17,22 +17,10 @@
         "homepage": "",
         "owner": "DavHau",
         "repo": "mach-nix",
-        "rev": "773580c35bcdb8cbd0820018d304686282f88d16",
-        "sha256": "105d6b6kgvn8kll639vx5adh5hp4gjcl4bs9rjzzyqz7367wbxj6",
+        "rev": "refs/tags/3.4.0",
+        "sha256": "19vh5qfqlml22d6mpi34nnbh71i259sh223l4dr4axar3byy1408",
         "type": "tarball",
-        "url": "https://github.com/DavHau/mach-nix/archive/773580c35bcdb8cbd0820018d304686282f88d16.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "niv": {
-        "branch": "master",
-        "description": "Easy dependency management for Nix projects",
-        "homepage": "https://github.com/nmattia/niv",
-        "owner": "nmattia",
-        "repo": "niv",
-        "rev": "3cd7914b2c4cff48927e11c216dadfab7d903fe5",
-        "sha256": "1agq4nvbhrylf2s77kb4xhh9k7xcwdwggq764k4jgsbs70py8cw3",
-        "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/3cd7914b2c4cff48927e11c216dadfab7d903fe5.tar.gz",
+        "url": "https://github.com/DavHau/mach-nix/archive/refs/tags/3.4.0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
@@ -41,10 +29,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "d3179446efde6bc6f5b01f18438b9131fe8f1741",
-        "sha256": "1kc9x65wfyfb78ix1324v444xzl6zr5x8m1frf5vmk68xag6rm0w",
+        "rev": "refs/tags/21.11",
+        "sha256": "162dywda2dvfj1248afxc45kcrg83appjd0nmdb541hl7rnncf02",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/d3179446efde6bc6f5b01f18438b9131fe8f1741.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/refs/tags/21.11.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "pre-commit-hooks.nix": {
