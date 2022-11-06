@@ -4,11 +4,12 @@
 
 ## Setup
 
-Ensure [nix](https://nixos.org/guides/install-nix.html) is available.
+Ensure [nix](https://nixos.org/guides/install-nix.html) is available and `flake` support is enabled, refer to [Flakes](https://nixos.wiki/wiki/Flakes).
+
 Enable the environment by typing:
 
 ```
-nix-shell
+nix develop
 ```
 
 Alternatively use [direnv](https://direnv.net/) and enable it using:

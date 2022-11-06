@@ -1,0 +1,172 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1667395993,
+        "narHash": "sha256-nuEHfE/LcWyuSWnS8t12N1wc105Qtau+/OdUAjtQ0rA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "5aed5285a952e0b949eb3ba02c12fa4fcfef535f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1667077288,
+        "narHash": "sha256-bdC8sFNDpT0HK74u9fUkpbf1MEzVYJ+ka7NXCdgBoaA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "6ee9ebb6b1ee695d2cacc4faa053a7b9baa76817",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "mach-nix": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pypi-deps-db": [
+          "pypi-deps-db"
+        ]
+      },
+      "locked": {
+        "lastModified": 1654084003,
+        "narHash": "sha256-j/XrVVistvM+Ua+0tNFvO5z83isL+LBgmBi9XppxuKA=",
+        "owner": "DavHau",
+        "repo": "mach-nix",
+        "rev": "7e14360bde07dcae32e5e24f366c83272f52923f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DavHau",
+        "ref": "3.5.0",
+        "repo": "mach-nix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1667653703,
+        "narHash": "sha256-Xow4vx52/g5zkhlgZnMEm/TEXsj+13jTPCc2jIhW1xU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f09ad462c5a121d0239fde645aacb2221553a217",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-22.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1667292599,
+        "narHash": "sha256-7ISOUI1aj6UKMPIL+wwthENL22L3+A9V+jS8Is3QsRo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ef2f213d9659a274985778bff4ca322f3ef3ac68",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "pre-commit-hooks": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1667682049,
+        "narHash": "sha256-SJu+8wV5A9ap6otFi9ZNTSLXQJbvFiA1q2XItrt9gJ8=",
+        "owner": "cachix",
+        "repo": "pre-commit-hooks.nix",
+        "rev": "cc21c7981d2ab9aa2f00e211ef8c6a0af1d31905",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cachix",
+        "repo": "pre-commit-hooks.nix",
+        "type": "github"
+      }
+    },
+    "pypi-deps-db": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1667723542,
+        "narHash": "sha256-gygUKOf9TB0lFb6/luwFo43EO+EAYVGijrXZJyC5vsg=",
+        "owner": "DavHau",
+        "repo": "pypi-deps-db",
+        "rev": "23b2e2ad9d2d4a9819671f2c0096dff90fb1a658",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DavHau",
+        "repo": "pypi-deps-db",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "mach-nix": "mach-nix",
+        "nixpkgs": "nixpkgs",
+        "pre-commit-hooks": "pre-commit-hooks",
+        "pypi-deps-db": "pypi-deps-db",
+        "ta-lib": "ta-lib",
+        "tda-api": "tda-api"
+      }
+    },
+    "ta-lib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1520861541,
+        "narHash": "sha256-Jw8+Gh+HRHZ+YXrz/LKsJJ7NA1hNVztkY2w+dzC9/hE=",
+        "owner": "TA-Lib",
+        "repo": "ta-lib",
+        "rev": "400eed5ab37a83a87984e28d3fbed801f847f530",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TA-Lib",
+        "repo": "ta-lib",
+        "type": "github"
+      }
+    },
+    "tda-api": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637076394,
+        "narHash": "sha256-RjsHAnO23aPspXpoQZz6Ax+UVYF4OOKr5h5mvZbqgMY=",
+        "owner": "alexgolec",
+        "repo": "tda-api",
+        "rev": "c024fc97f6a44aa2d938590348f67a22e62c1a5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alexgolec",
+        "ref": "v.1.5.0",
+        "repo": "tda-api",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
