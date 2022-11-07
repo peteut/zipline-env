@@ -36,7 +36,10 @@
     in
     eachSystem supportedSystems (system:
     let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
       python = "python39";
       pre-commit = pre-commit-hooks.lib.${system};
       inherit (mach-nix.lib.${system}) mkPython;
@@ -56,6 +59,7 @@
           pandas-datareader
           yfinance
           tda-api
+          ipycanvas
           pip
         '';
         providers.jupyterlab = "wheel";
@@ -79,13 +83,15 @@
         shellHook = ''
           # Tells pip to put packages into $PIP_PREFIX instead of the usual locations.
           # See https://pip.pypa.io/en/stable/user_guide/#environment-variables.
-                export PIP_PREFIX=$PWD/_build/pip_packages
-                export PYTHONPATH="$PIP_PREFIX/${pkgs.python3.sitePackages}:$PYTHONPATH"
-                export PATH="$PIP_PREFIX/bin:$PATH"
-                unset SOURCE_DATE_EPOCH
+          export PIP_PREFIX=$PWD/_build/pip_packages
+          export PYTHONPATH="$PIP_PREFIX/${pkgs.python3.sitePackages}:$PYTHONPATH"
+          export PATH="$PIP_PREFIX/bin:$PATH"
+          unset SOURCE_DATE_EPOCH
+
+          jupyter labextension install @jupyter-widgets/jupyterlab-manager ipycanvas
 
           # start jupyterlab
-                jupyter lab --notebook-dir=./notebooks
+          jupyter lab --notebook-dir=./notebooks
         '';
       };
 
@@ -98,8 +104,6 @@
             nix-linter.enable = true;
             black.enable = true;
           };
-          # generated files
-          excludes = [ "^nix/sources.nix$" ];
         };
       };
 
@@ -107,7 +111,10 @@
     {
       devShells.default = pkgs.mkShell {
         src = ./.;
-        buildInputs = [ pyEnv ];
+        buildInputs = builtins.attrValues {
+          inherit pyEnv;
+          inherit (pkgs) nodejs google-chrome chromedriver;
+        };
         shellHook = ''
           ${jupyterlab.shellHook}
           ${checks.pre-commit-check.shellHook}
